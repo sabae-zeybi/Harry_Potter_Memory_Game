@@ -1,0 +1,134 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-image: url("bg.jpg");
+    background-size: 90%;
+    background-size: cover;
+  }
+  
+  .control-buttons {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background-color: rgba(31, 71, 43, 0.5);
+  }
+  
+  .control-buttons span {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(102, 55, 28);
+    color: #FFF;
+    padding: 15px 25px;
+    font-size: 30px;
+    text-align: center;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .info-container {
+    width: 1080px;
+    margin: 20px auto 0;
+    background-image: url('paper.jpg');
+    color: wheat;
+    padding: 20px;
+    font-size: 24px;
+    overflow: hidden;
+    border: 1px solid rgb(180, 95, 46);
+  }
+  
+  .info-container .name {
+    float: left;
+    width: 50%;
+  }
+  
+  .info-container .tries {
+    float: right;
+    width: 50%;
+    text-align: right;
+  }
+  
+  .memory-game-blocks {
+    border: 1px solid rgb(177, 93, 44);
+    background-color: rgba(7, 73, 21, 0.5);
+    display: flex;
+    flex-wrap: wrap;
+    width: 50%; /* Reduced width to 50% of the page */
+    margin: 20px auto;
+    margin-right: 25px;
+    padding: 8px;
+  }
+  
+  .memory-game-blocks.no-clicking {
+    pointer-events: none;
+  }
+  
+  .memory-game-blocks .game-block {
+    height: 100px; /* Reduced height of each block */
+    transition: transform .5s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    position: relative;
+    flex: 1 0 100px; /* Adjusted size to be smaller */
+    margin: 0 5px 10px; /* Reduced margins */
+  }
+  
+  .memory-game-blocks .game-block .front {
+    background-image: url('paper.jpg'); /* Replace with the actual path to your image */
+    background-size: cover; /* Ensure the image covers the entire block */
+    background-position: center; /* Center the image */
+    line-height: 100px; /* Adjusted line-height (you may remove this if unnecessary) */
+  }
+  
+  .memory-game-blocks .game-block .front:before {
+    content: '';
+    display: block;
+    width: 70px; /* Adjust width as needed */
+    height: 70px; /* Adjust height as needed */
+    margin: 15px auto; /* Center the image vertically and horizontally */
+    background-image: url('owl.png'); 
+    background-size: contain; /* Ensure the image fits within the block */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    background-position: center; /* Center the image */
+  }
+  
+  .memory-game-blocks .game-block .back {
+    background-color: rgb(9, 58, 9);
+    transform: rotateY(180deg);
+  }
+  
+  
+  .memory-game-blocks .game-block .back img {
+    width: 80px; /* Adjusted image size */
+    height: 80px;
+    margin-top: 15px; /* Adjusted margin for centered image */
+  }
+  
+  .memory-game-blocks .game-block .face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    backface-visibility: hidden;
+    border: 1px solid rgb(180, 95, 46);
+  }
+  
+  .memory-game-blocks .game-block.is-flipped,
+  .memory-game-blocks .game-block.has-match {
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+    pointer-events: none;
+  }
+  
+  #doby{
+    width: 150;
+    height: 150;
+    object-fit: cover;
+  }
